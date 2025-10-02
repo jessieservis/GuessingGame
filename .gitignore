@@ -1,0 +1,12 @@
+# Maven build output
+/target/
+/demo/target/
+
+# IDE files (optional)
+.classpath
+.project
+.settings/
+.idea/
+
+# Maven wrapper
+/.mvn/wrapper/maven-wrapper.jar
