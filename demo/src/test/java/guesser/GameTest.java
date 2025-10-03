@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 
 public class GameTest {
+    // tests if the generated number is within the valid range
     @Test
     public void testGenerateNumberInRange() {
         for (int i = 0; i < 100; i++) {
@@ -15,6 +16,7 @@ public class GameTest {
         }
     }
 
+    // tests if a correct guess is identified properly
     @Test
     public void testCheckGuessCorrect() {
         Game.number = 50;
@@ -23,6 +25,7 @@ public class GameTest {
         assertEquals("Correct!", Game.output);
     }
 
+    // tests if a too low guess is identified properly
     @Test
     public void testCheckGuessTooLow() {
         Game.number = 60;
@@ -31,6 +34,7 @@ public class GameTest {
         assertEquals(Game.output.startsWith("Too low!"), true);
     }
 
+    // tests if a too high guess is identified properly
     @Test
     public void testCheckGuessTooHigh() {
         Game.number = 20;
@@ -39,6 +43,7 @@ public class GameTest {
         assertEquals(Game.output.startsWith("Too high!"), true);
     }
 
+    // tests if an exception is thrown for guesses below the valid range
     @Test(expected = IllegalArgumentException.class)
     public void testCheckGuessBelowRange() {
         Game.number = 10;
@@ -46,6 +51,7 @@ public class GameTest {
         Game.checkGuess(0);
     }
 
+    // tests if an exception is thrown for guesses above the valid range
     @Test(expected = IllegalArgumentException.class)
     public void testCheckGuessAboveRange() {
         Game.number = 10;
@@ -53,6 +59,7 @@ public class GameTest {
         Game.checkGuess(101);
     }
 
+    // tests the playAgain logic when user opts not to play again
     @Test
     public void testPlayAgainNo() {
         // Pretend the user typed "n"
@@ -65,6 +72,7 @@ public class GameTest {
         assertEquals("Thanks for playing!", Game.output);
     }
 
+    // tests the playAgain logic when user opts to play again
     @Test
     public void testPlayAgainYes() {
         // Pretend user typed "y" then guessed "50" then typed "n" to exit

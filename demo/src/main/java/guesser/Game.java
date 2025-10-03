@@ -13,29 +13,33 @@ public class Game {
         scan = s;
     }
     
+    // generate a random number between 1 and 100
     public static void generateNumber() {
         number = (int) (Math.random() * 100) + 1;
     }
 
+    //prompt user for a guess
     public static void getGuess() {
-        System.out.print("Enter your guess: ");
+        System.out.print("Guess a number between 1 and 100: ");
         int guess = scan.nextInt();
         scan.nextLine(); // consume newline
         checkGuess(guess);
     }
 
+    // check if the guess is correct, too high, or too low
     public static void checkNumber(int guess) {
         if (guess < number) {
             output = "Too low! \nThe correct number was: " + number;
         } else if (guess > number) {
-           output = "Too high! \nThe correct number was: " + number;
+            output = "Too high! \nThe correct number was: " + number;
         } else {
-           output = "Correct!";
+            output = "Correct!";
         }
         System.out.println(output);
         playAgain();
     }
 
+    // validate guess is within range and check it
     public static void checkGuess(int guess) {
         if (guess < 1 || guess > 100) {
             throw new IllegalArgumentException("Guess must be between 1 and 100");
@@ -44,6 +48,7 @@ public class Game {
         }
     }
 
+    // ask user if they want to play again
     public static void playAgain() {
         if (!test) {
             output = "Do you want to play again? (y/n)\n";
